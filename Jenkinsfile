@@ -12,14 +12,14 @@ pipeline{
         stage('Build') {
             steps {
                 script{
-                build("notes-app","v2")
+                build("notes-app","v3")
             }
         }
         }
          stage("Push To DockerHub") {
     steps {
         script{
-            push("notes-app","v2","amoomirr")
+            push("notes-app","v3","amoomirr")
         }
     }
 }
