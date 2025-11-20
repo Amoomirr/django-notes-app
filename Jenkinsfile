@@ -12,21 +12,21 @@ pipeline{
         stage('Build') {
             steps {
                 script{
-                build("notes-app","shared")
+                build("notes-app","v2")
             }
         }
         }
          stage("Push To DockerHub") {
     steps {
         script{
-            push("notes-app","shared","amoomirr")
+            push("notes-app","v2","amoomirr")
         }
     }
 }
         stage('Deploy') {
             steps {
                 sh "docker compose down && docker compose up -d"
-                echo "Deployment done"
+                echo "Deployment is done"
             }
         }
     }
